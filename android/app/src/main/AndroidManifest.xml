@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- <user-permission android:name="android.permission.INTERNET"/> -->
+    <!-- <user-permission android:name="android.permission.WRITE_INTERAL_STORAGE"/> -->
+    <!-- <user-permission android:name="android.permission.READ_INTERNAL_STORAGE"/> -->
     <application
         android:label="blockbd"
         android:name="${applicationName}"

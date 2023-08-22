@@ -1,26 +1,41 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+
 import 'package:http/http.dart';
 
 import '../homepage.dart';
 
 class Registercontroller extends GetxController {
-  final emailcontroller = TextEditingController().obs;
-  final passwordcontroller = TextEditingController().obs;
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  // final emailcontroller = TextEditingController().obs;
+  TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController pconfirmationcontroller = TextEditingController();
 
   void registerapi() async {
     try {
-      final response =
-          await post(Uri.parse("https://reqres.in/api/register"), body: {
-        "email": emailcontroller.value.text,
-        "password": passwordcontroller.value.text,
-      });
+      final response = await post(
+        Uri.parse(
+            "https://suman.thakbe.xyz/api/register?name=${namecontroller.text.trim()}&email=${emailcontroller.text.trim()}&password=${passwordcontroller.text.trim()}&password_confirmation=${pconfirmationcontroller.text.trim()}"),
+        // headers: {"Accept": "application/json"}
+//https://suman.thakbe.xyz/api/register?name=fahim&email=fahim@gamil.com&password=fahim155&password_confirmation=fah155
+
+        //name=${namecontroller.text.trim()}&email=${emailcontroller.text.trim()}&password=${passwordcontroller.text.trim()}&password_confirmation=${passwordcontroller.text.trim()}"
+        //  body: {
+        //   "name": namecontroller.value.text,
+        //   "email": emailcontroller.value.text,
+        //   "password": passwordcontroller.value.text,
+        //   "password_confirmation": pconfirmationcontroller.value.text,
+        // }
+      );
       var data = jsonDecode(response.body);
       if (response.statusCode == 200) {
         Get.snackbar("Register sucess", "Congratulations",
             backgroundColor: Colors.amber[100]);
+        print(response.statusCode);
+        print(data);
         print("Account create sucessful");
         Get.to(Homescreen());
       } else
@@ -30,6 +45,7 @@ class Registercontroller extends GetxController {
         };
     } catch (e) {
       Get.snackbar("Excption", e.toString());
+      print(e);
     }
   }
 

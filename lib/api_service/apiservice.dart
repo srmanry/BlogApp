@@ -1,20 +1,29 @@
-const baseurl = "https://suman.thakbe.xyz/api/";
+import 'package:blockbd/api_service/constant.dart';
+import 'package:blockbd/homepage.dart';
+import 'package:get/get.dart';
 
-const registerurl = "https://suman.thakbe.xyz/api/register";
-const loginurl = "https://suman.thakbe.xyz/api/login";
+import '../models/api_response.dart';
+import 'package:http/http.dart' as http;
 
-//User
-const getuserurl = "https://suman.thakbe.xyz/api/user";
-const putuserurl = "https://suman.thakbe.xyz/api/user";
-const postlogouturl = "https://suman.thakbe.xyz/api/logout";
+Future<ApiResponse> login(String email, String password) async {
+  ApiResponse apiResponse = ApiResponse();
+  try {
+    final response = await http.post(
+      Uri.parse(loginurl),
+      headers: {
+        "Accept": "Application/json",
+      },
+    );
+    if (response.statusCode == 200) {
+      Get.snackbar("Login sucess", "Congratulations");
 
-// post
-const getallpost = "https://suman.thakbe.xyz/api/posts";
-
-const createpost = "https://suman.thakbe.xyz/api/posts";
-const getsinglepost = "https://suman.thakbe.xyz/api/posts";
-const updatepost = "https://suman.thakbe.xyz/api/posts";
-const deletepost = "https://suman.thakbe.xyz/api/posts/{id})";
-
-// comment================================
-//const updatepost = "https://suman.thakbe.xyz/api/register";
+      Get.to(Homescreen());
+    } else {
+      Get.snackbar("Faild ", "Please try agin");
+    }
+  } catch (e) {
+    Get.snackbar("Excption", e.toString());
+    print(e);
+  }
+  return apiResponse;
+}

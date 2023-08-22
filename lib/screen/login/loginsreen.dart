@@ -25,17 +25,7 @@ class Loginscreen extends StatelessWidget {
               height: 50.h,
             ),
             // Text("Sign Up",),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: controller.namecontroller,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    hintText: "NAME"),
-              ),
-            ),
+
             SizedBox(
               height: 20,
             ),
@@ -51,7 +41,7 @@ class Loginscreen extends StatelessWidget {
                   border: OutlineInputBorder(
                       // borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(20)),
-                  hintText: "Gmail",
+                  hintText: "Email",
                 ),
               ),
             ),
@@ -77,24 +67,11 @@ class Loginscreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: controller.passwordcontroller,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    hintText: "password"),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
 
             SizedBox(
-              height: 20,
+              height: 10.h,
             ),
+
             SizedBox(
               height: 15.h,
             ),
