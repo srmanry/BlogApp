@@ -30,7 +30,7 @@ class Homescreen extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(PostScreen());
+          Get.to(Postscreen());
         },
         child: Icon(Icons.add),
       ),
