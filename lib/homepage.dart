@@ -1,5 +1,5 @@
 import 'package:blockbd/screen/post_screen.dart';
-import 'package:blockbd/screen/profile_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,13 +12,13 @@ class Homescreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.teal,
         centerTitle: true,
-        title: Text("Bangla Blog"),
-        actions: [
+        title: const Text("Bangla Blog"),
+        actions: const [
           Icon(
             Icons.notifications,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+            padding: EdgeInsets.only(left: 8.0, right: 8.0),
             child: Icon(
               Icons.logout,
             ),
@@ -32,16 +32,16 @@ class Homescreen extends StatelessWidget {
         onPressed: () {
           Get.to(Postscreen());
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
         elevation: 10,
         clipBehavior: Clip.antiAlias,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         child: BottomNavigationBar(
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Post",

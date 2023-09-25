@@ -6,15 +6,15 @@ import 'package:get/get.dart';
 
 import 'screen/login/loginsreen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-// void main() => runApp(
-//       DevicePreview(
-//         enabled: !kReleaseMode,
-//         builder: (context) => MyApp(), // Wrap your app
-//       ),
-//     );
+// void main() {
+//   runApp(const MyApp());
+// }
+void main() => runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => MyApp(), // Wrap your app
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

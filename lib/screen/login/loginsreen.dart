@@ -26,12 +26,14 @@ class Loginscreen extends StatelessWidget {
             ),
             // Text("Sign Up",),
 
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
               decoration: BoxDecoration(
-                boxShadow: [BoxShadow(color: Colors.white, blurRadius: 10)],
+                boxShadow: const [
+                  BoxShadow(color: Colors.white, blurRadius: 10)
+                ],
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -50,7 +52,9 @@ class Loginscreen extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                boxShadow: [BoxShadow(color: Colors.white, blurRadius: 10)],
+                boxShadow: const [
+                  BoxShadow(color: Colors.white, blurRadius: 10)
+                ],
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -59,7 +63,7 @@ class Loginscreen extends StatelessWidget {
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.visibility_off_outlined)),
+                      icon: const Icon(Icons.visibility_off_outlined)),
                   border: OutlineInputBorder(
                       //borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(20)),

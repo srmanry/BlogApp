@@ -18,11 +18,11 @@ class Registerscreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 100,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text(
                       "Welcome Back ",
                       style: TextStyle(
@@ -76,7 +76,7 @@ class Registerscreen extends StatelessWidget {
                           hintText: "confirm password"),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Center(
@@ -91,9 +91,9 @@ class Registerscreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           //color: Colors.green[600],
-                          color: Color(0xFFFF7BCC9),
+                          color: const Color(0xFFFF7BCC9),
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Signup",
                             style: TextStyle(
