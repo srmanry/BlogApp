@@ -14,6 +14,13 @@ class Logincontroller extends GetxController {
   //final passwordcontroller = TextEditingController();
 
   RxBool loading = false.obs;
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    loginapi();
+    super.onInit();
+  }
+
   void loginapi() async {
     loading.value = true;
     try {

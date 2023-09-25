@@ -1,4 +1,4 @@
-import 'package:blockbd/screen/post_screen.dart';
+import 'package:blockbd/screen/post/post_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -46,10 +46,6 @@ class Homescreen extends StatelessWidget {
               icon: Icon(Icons.home),
               label: "Post",
             ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.home),
-            //   label: "Home",
-            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: "Profile",

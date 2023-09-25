@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../controller/post_controller.dart';
+import '../../controller/post_controller.dart';
 
 class Postscreen extends StatelessWidget {
   final ImagePickerController _imagePickerController =
@@ -31,14 +31,14 @@ class Postscreen extends StatelessWidget {
                   final selectedImage =
                       _imagePickerController.selectedImage.value;
                   return selectedImage != null
-                      ? Container(
+                      ? SizedBox(
                           height: 200.h,
                           width: double.infinity,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(5),
                             //clipBehavior: Clip.none,
                             child: Image.file(
-                              File(selectedImage.path) as File,
+                              File(selectedImage.path),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -46,7 +46,7 @@ class Postscreen extends StatelessWidget {
                       : Center(
                           child: TextButton(
                               onPressed: _imagePickerController.pickImage,
-                              child: Text(" Pleas selected image ")));
+                              child: const Text(" Pleas selected image ")));
                 }),
                 SizedBox(
                   height: 20.h,
