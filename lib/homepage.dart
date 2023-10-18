@@ -3,9 +3,11 @@ import 'package:blockbd/screen/post/post_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'screen/post/profile_screen.dart';
+
 class Homescreen extends StatelessWidget {
   Homescreen({super.key});
-  int currerntIndex = 1;
+  int currerntIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +27,7 @@ class Homescreen extends StatelessWidget {
           ),
         ],
       ),
-
-      // body: currerntIndex == 0 ? Postscreen() : Profilescreen(),
-
+      body: currerntIndex == 0 ? Postscreen() : const Profilescreen(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.to(Postscreen());
