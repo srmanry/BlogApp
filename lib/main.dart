@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import 'homepage.dart';
 import 'screen/login/loginsreen.dart';
 
 // void main() {
@@ -32,8 +33,8 @@ class MyApp extends StatelessWidget {
           title: 'First Method',
           // You can use the library anywhere in the app even in theme
 
-          home: Loginscreen(),
-          // home: Homescreen(),
+          //  home: Loginscreen(),
+          home: Homescreen(),
         );
       },
     );
