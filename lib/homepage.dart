@@ -29,12 +29,12 @@ class Homescreen extends StatelessWidget {
           ),
         ],
       ),
-      // body: currerntIndex == 0 ? Postscreen() : const Profilescreen(),
-      body: currerntIndex == 0 ? Createpost() : const Profilescreen(),
+      body: currerntIndex == 0 ? Postscreen() : const Profilescreen(),
+      // body: currerntIndex == 0 ? Createpost() : const Profilescreen(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Get.to(Postscreen());
-          Get.to(Createpost());
+          Get.to(Postscreen());
+          // Get.to(Createpost());
         },
         child: const Icon(Icons.add),
       ),
