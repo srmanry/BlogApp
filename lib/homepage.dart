@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import 'screen/post/create_post.dart';
 import 'screen/post/profile_screen.dart';
+import 'screen/view/view_post.dart';
 
 class Homescreen extends StatelessWidget {
   Homescreen({super.key});
@@ -45,12 +46,16 @@ class Homescreen extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         shape: const CircularNotchedRectangle(),
         child: BottomNavigationBar(
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Post",
+              icon: InkWell(
+                  onTap: () {
+                    Get.to(const ViewPostscreen());
+                  },
+                  child: const Icon(Icons.home)),
+              label: "Home",
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: "Profile",
             ),
