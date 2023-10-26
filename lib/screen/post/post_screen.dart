@@ -4,20 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../controller/post_controller.dart';
+import '../../controller/post_controller.dart';
 
 class Postscreen extends StatelessWidget {
-  final ImagePickerController _imagePickerController =
-      Get.put(ImagePickerController());
+  PostController postController = Get.put(PostController());
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text("Create Post"),
-        ),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
@@ -28,25 +23,24 @@ class Postscreen extends StatelessWidget {
                   height: 0.h,
                 ),
                 Obx(() {
-                  final selectedImage =
-                      _imagePickerController.selectedImage.value;
+                  final selectedImage = postController.selectedImage.value;
                   return selectedImage != null
-                      ? Container(
+                      ? SizedBox(
                           height: 200.h,
                           width: double.infinity,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(5),
                             //clipBehavior: Clip.none,
                             child: Image.file(
-                              File(selectedImage.path) as File,
+                              File(selectedImage.path),
                               fit: BoxFit.cover,
                             ),
                           ),
                         )
                       : Center(
                           child: TextButton(
-                              onPressed: _imagePickerController.pickImage,
-                              child: Text(" Pleas selected image ")));
+                              onPressed: postController.pickImage,
+                              child: const Text(" Pleas selected image ")));
                 }),
                 SizedBox(
                   height: 20.h,
@@ -60,12 +54,14 @@ class Postscreen extends StatelessWidget {
                         fontSize: 18.sp,
                         color: Colors.teal,
                       )),
+                  controller: postController.postbody,
                 ),
                 SizedBox(
                   height: 20.h,
                 ),
                 InkWell(
                   onTap: () {
+                    postController.uplodeFile();
                     print("Create Post");
                     Get.snackbar('Create the post ', "Sucess ");
                   },

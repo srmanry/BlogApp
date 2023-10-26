@@ -1,21 +1,57 @@
-import 'package:blockbd/models/usermodel.dart';
+class postModel {
+  String? message;
+  Post? post;
 
-class Postmodel {
-  int? id;
+  postModel({this.message, this.post});
+
+  postModel.fromJson(Map<String, dynamic> json) {
+    message = json['message'];
+    post = json['post'] != null ? Post.fromJson(json['post']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    if (post != null) {
+      data['post'] = post!.toJson();
+    }
+    return data;
+  }
+}
+
+class Post {
   String? body;
+  int? userId;
   String? image;
-  int? likecount;
-  int? commentscount;
-  User? user;
-  bool? selfLiked;
+  String? updatedAt;
+  String? createdAt;
+  int? id;
 
-  Postmodel({
-    this.id,
-    this.body,
-    this.image,
-    this.likecount,
-    this.commentscount,
-    this.user,
-    this.selfLiked,
-  });
+  Post(
+      {this.body,
+      this.userId,
+      this.image,
+      this.updatedAt,
+      this.createdAt,
+      this.id});
+
+  Post.fromJson(Map<String, dynamic> json) {
+    body = json['body'];
+    userId = json['user_id'];
+    image = json['image'];
+    updatedAt = json['updated_at'];
+    createdAt = json['created_at'];
+    id = json['id'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['body'] = body;
+    data['user_id'] = userId;
+    data['image'] = image;
+    data['updated_at'] = updatedAt;
+    data['created_at'] = createdAt;
+    data['id'] = id;
+    return data;
+  }
 }

@@ -8,7 +8,7 @@ class Profilescreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Profile Screen"),
+        title: const Text("Profile Screen"),
       ),
     );
   }

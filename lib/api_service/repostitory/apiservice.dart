@@ -1,8 +1,8 @@
-import 'package:blockbd/api_service/constant.dart';
+import 'package:blockbd/api_service/repostitory/constant.dart';
 import 'package:blockbd/homepage.dart';
 import 'package:get/get.dart';
 
-import '../models/api_response.dart';
+import '../../models/api_response.dart';
 import 'package:http/http.dart' as http;
 
 Future<ApiResponse> login(String email, String password) async {

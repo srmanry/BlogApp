@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:blockbd/api_service/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 
+import '../api_service/url.dart';
 import '../homepage.dart';
 import '../screen/login/registerscreen.dart';
 
@@ -14,6 +14,12 @@ class Logincontroller extends GetxController {
   //final passwordcontroller = TextEditingController();
 
   RxBool loading = false.obs;
+  @override
+  void onInit() {
+    loginapi();
+    super.onInit();
+  }
+
   void loginapi() async {
     loading.value = true;
     try {
@@ -43,31 +49,7 @@ class Logincontroller extends GetxController {
     } catch (e) {
       loading.value = false;
       Get.snackbar("Excption", e.toString());
-      print(e);
+      print("catch");
     }
   }
-}
-
-// Map<String, String> header = {
-//   'Content-Type': 'application/json; charset=UTF-8',
-//   'Accept': 'application/json',
-// };
-
-// postWork(
-//     {required String emaile,
-//     required String name,
-//     required String password}) async {
-//   final User_url = Uri.parse(
-//       "https://suman.thakbe.xyz/api/register?name=$name&email=$emaile&password=$password&password_confirmation=$password");
-//   http.Response reponse = await http.post(User_url, headers: header, body: {});
-//   if (reponse.statusCode == 200) {
-//     print("sucess ");
-//     print(reponse.body);
-//   } else {
-//     print(reponse.statusCode);
-//   }
-// }
-
-signup() {
-  Get.to(Registerscreen());
 }

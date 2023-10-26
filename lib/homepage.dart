@@ -1,11 +1,15 @@
-import 'package:blockbd/screen/post_screen.dart';
+import 'package:blockbd/api_service/repostitory/constant.dart';
+import 'package:blockbd/screen/post/post_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'screen/post/create_post.dart';
+import 'screen/post/profile_screen.dart';
+
 class Homescreen extends StatelessWidget {
   Homescreen({super.key});
-  int currerntIndex = 1;
+  int currerntIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +29,12 @@ class Homescreen extends StatelessWidget {
           ),
         ],
       ),
-
-      // body: currerntIndex == 0 ? Postscreen() : Profilescreen(),
-
+      body: currerntIndex == 0 ? Postscreen() : const Profilescreen(),
+      // body: currerntIndex == 0 ? Createpost() : const Profilescreen(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.to(Postscreen());
+          // Get.to(Createpost());
         },
         child: const Icon(Icons.add),
       ),
@@ -46,10 +50,6 @@ class Homescreen extends StatelessWidget {
               icon: Icon(Icons.home),
               label: "Post",
             ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.home),
-            //   label: "Home",
-            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: "Profile",
