@@ -32,14 +32,14 @@ class Homescreen extends StatelessWidget {
       ),
       body: currerntIndex == 0 ? Postscreen() : const Profilescreen(),
       // body: currerntIndex == 0 ? Createpost() : const Profilescreen(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Get.to(Postscreen());
-          // Get.to(Createpost());
-        },
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Get.to(Postscreen());
+      //     // Get.to(Createpost());
+      //   },
+      //   child: const Icon(Icons.add),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
         elevation: 10,
@@ -54,6 +54,14 @@ class Homescreen extends StatelessWidget {
                   },
                   child: const Icon(Icons.home)),
               label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: InkWell(
+                  onTap: () {
+                    Get.to(Postscreen());
+                  },
+                  child: const Icon(Icons.add)),
+              label: "Create Post",
             ),
             const BottomNavigationBarItem(
               icon: Icon(Icons.person),
