@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import 'screen/post/create_post.dart';
 import 'screen/post/profile_screen.dart';
+import 'screen/view/view_post.dart';
 
 class Homescreen extends StatelessWidget {
   Homescreen({super.key});
@@ -31,26 +32,38 @@ class Homescreen extends StatelessWidget {
       ),
       body: currerntIndex == 0 ? Postscreen() : const Profilescreen(),
       // body: currerntIndex == 0 ? Createpost() : const Profilescreen(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Get.to(Postscreen());
-          // Get.to(Createpost());
-        },
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Get.to(Postscreen());
+      //     // Get.to(Createpost());
+      //   },
+      //   child: const Icon(Icons.add),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
         elevation: 10,
         clipBehavior: Clip.antiAlias,
         shape: const CircularNotchedRectangle(),
         child: BottomNavigationBar(
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Post",
+              icon: InkWell(
+                  onTap: () {
+                    Get.to(const ViewPostscreen());
+                  },
+                  child: const Icon(Icons.home)),
+              label: "Home",
             ),
             BottomNavigationBarItem(
+              icon: InkWell(
+                  onTap: () {
+                    Get.to(Postscreen());
+                  },
+                  child: const Icon(Icons.add)),
+              label: "Create Post",
+            ),
+            const BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: "Profile",
             ),

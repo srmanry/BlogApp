@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:blockbd/api_service/repostitory/login_ripo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
@@ -52,4 +53,16 @@ class Logincontroller extends GetxController {
       print("catch");
     }
   }
+
+  // Future logindata() async {
+  //   Response respo = await LoginRipo.logipostData(
+  //       email: emailcontroller.text.tr, password: passwordcontroller.text.tr);
+
+  //   if (respo?.statusCode == 200) {
+  //     Get.snackbar("Sucess", "File Uplode");
+  //     print(respo?.body);
+  //   } else {
+  //     Get.snackbar("Eroor${respo?.statusCode}", "");
+  //   }
+  // }
 }
