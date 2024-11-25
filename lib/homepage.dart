@@ -19,17 +19,11 @@ class Homescreen extends StatelessWidget {
         centerTitle: true,
         title: const Text("Bangla Blog"),
         actions: const [
-          Icon(
-            Icons.notifications,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 8.0, right: 8.0),
-            child: Icon(
-              Icons.logout,
-            ),
-          ),
-        ],
-      ),
+          Icon( Icons.notifications,),
+          Padding( padding: EdgeInsets.only(left: 8.0, right: 8.0),
+            child: Icon(  Icons.logout, ),),
+        ],),
+
       body: currerntIndex == 0 ? Postscreen() : const Profilescreen(),
       // body: currerntIndex == 0 ? Createpost() : const Profilescreen(),
       // floatingActionButton: FloatingActionButton(
@@ -48,30 +42,17 @@ class Homescreen extends StatelessWidget {
         child: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: InkWell(
-                  onTap: () {
-                    Get.to(const ViewPostscreen());
-                  },
-                  child: const Icon(Icons.home)),
-              label: "Home",
+              icon: InkWell(onTap: () {  Get.to(const ViewPostscreen());},
+                  child: const Icon(Icons.home)), label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: InkWell(
-                  onTap: () {
-                    Get.to(Postscreen());
-                  },
-                  child: const Icon(Icons.add)),
-              label: "Create Post",
+              icon: InkWell( onTap: () {Get.to(Postscreen());},
+              child: const Icon(Icons.add)),label: "Create Post",
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile",
-            ),
+            const BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile", ),
           ],
           currentIndex: currerntIndex,
-          onTap: (value) {
-            currerntIndex = value;
-          },
+          onTap: (value) {  currerntIndex = value;},
         ),
       ),
     );

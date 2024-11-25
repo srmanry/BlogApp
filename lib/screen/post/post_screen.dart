@@ -17,48 +17,31 @@ class Postscreen extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 0.h,
-                ),
+            child: Column(children: [
+                SizedBox(height: 0.h,),
                 Obx(() {
                   final selectedImage = postController.selectedImage.value;
                   return selectedImage != null
                       ? SizedBox(
-                          height: 200.h,
-                          width: double.infinity,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
+                          height: 200.h, width: double.infinity,
+                          child: ClipRRect(  borderRadius: BorderRadius.circular(5),
                             //clipBehavior: Clip.none,
-                            child: Image.file(
-                              File(selectedImage.path),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        )
+                            child: Image.file(File(selectedImage.path), fit: BoxFit.cover, ),
+                          ),)
                       : Center(
                           child: TextButton(
                               onPressed: postController.pickImage,
                               child: const Text(" Pleas selected image ")));
                 }),
-                SizedBox(
-                  height: 20.h,
-                ),
-                TextField(
-                  maxLines: 10,
+                SizedBox( height: 20.h, ),
+                TextField(maxLines: 10,
                   decoration: InputDecoration(
                       hintText: "Post Discription",
-                      hintStyle: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontSize: 18.sp,
-                        color: Colors.teal,
-                      )),
-                  controller: postController.postbody,
+                      hintStyle: TextStyle(   fontStyle: FontStyle.italic,  fontSize: 18.sp,color: Colors.teal, )),
+                      controller: postController.postbody,
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
+
+                SizedBox( height: 20.h,),
                 InkWell(
                   onTap: () {
                     postController.uplodeFile();
@@ -66,32 +49,17 @@ class Postscreen extends StatelessWidget {
                     Get.snackbar('Create the post ', "Sucess ");
                   },
                   child: Container(
-                    height: 40.h,
-                    width: 100.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.amber,
-                    ),
-                    child: Center(
-                      child: Padding(
+                    height: 40.h,  width: 100.w,
+                    decoration: BoxDecoration( borderRadius: BorderRadius.circular(10), color: Colors.amber, ),
+                    child: Center(child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Post",
-                          style: TextStyle(
-                            fontSize: 24.sp,
-                            color: Colors.white,
-                          ),
-                        ),
+                        child: Text(  "Post",  style: TextStyle( fontSize: 24.sp, color: Colors.white, ),  ),
                       ),
                     ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+                  ))
+              ]),
+          )),
+      ),);
   }
 }
 
